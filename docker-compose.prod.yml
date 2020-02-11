@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  ################################################################
+  #                     Setup Node Container
+  ################################################################
+  server:
+    environment:
+      - NODE_ENV=production
+    command: yarn start
+    restart: always
+
+  ################################################################
+  #                     Setup Web Container
+  ################################################################
+  web:
+    environment:
+      - NODE_ENV=production
+    ports:
+      - 80:${WEB_PORT}
+    command: yarn start
+    restart: always
